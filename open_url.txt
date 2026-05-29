@@ -1,0 +1,6 @@
+REM Open URL in default browser
+DELAY 2000
+GUI r
+DELAY 800
+STRING YOUR_URL_HERE
+ENTER
