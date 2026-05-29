@@ -1,0 +1,15 @@
+REM Wallpaper prank — URL version
+DELAY 2000
+GUI r
+DELAY 800
+STRING cmd
+ENTER
+DELAY 800
+STRING color F6
+ENTER
+DELAY 200
+STRING powershell -ep bypass -c "$f='C:\Users\Public\p.jpg';(New-Object Net.WebClient).DownloadFile('YOUR_URL_HERE',$f);$q=[char]34;Add-Type -MemberDefinition ('[DllImport('+$q+'user32.dll'+$q+')]public static extern int SystemParametersInfo(int a,int b,string c,int d);') -Name W -Namespace N;Set-ItemProperty -Path 'HKCU:\Control Panel\Desktop' -Name WallpaperStyle -Value 2;Set-ItemProperty -Path 'HKCU:\Control Panel\Desktop' -Name TileWallpaper -Value 0;[N.W]::SystemParametersInfo(20,0,$f,3)"
+ENTER
+DELAY 4000
+STRING exit
+ENTER
